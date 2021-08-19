@@ -1,0 +1,106 @@
+AUTH
+[
+    users: 
+    {
+        id
+        user:unique
+        password
+        identity_id
+    }
+]
+DATA
+[
+    identities
+    {
+        id
+        name
+        identity_number:unique:nullable
+        avatar_id:nullable
+    }
+    clients
+    {
+        id
+        identity_id
+    }
+    contacts
+    {
+        id
+        identity_id
+    }
+    cocoas
+    {
+        id
+        name
+        avatar_id
+    }
+    contracts
+    {
+        id
+        description
+        destination
+        documentation
+        client_id
+    }
+    avatars
+    {
+        id
+        avatar
+    }
+    emails
+    {
+        id
+        email
+    }
+    phones
+    {
+        id
+        phone
+        whatsapp:enum(1,0)->default(0)
+    }
+    status
+    {
+        id
+        status:enum(1,0)->default(1)
+    }
+    unit
+    {
+        id
+        unit_name
+        unit
+    }
+
+    //TABLAS M:M
+    cocoa_status
+    {
+        id
+        cocoa_id
+        status_id
+    }
+    cocoa_contract
+    {
+        id
+        cocoa_id
+        contract_id
+        quantity
+    }
+    contract_status
+    {
+        id
+        contract_id
+        status_id
+    }
+    identity_email
+    {
+        id
+        identity_id
+        email_id
+    }
+    identity_phone
+    {
+        id
+        identity_id
+        phone_id
+    }
+
+    
+]
